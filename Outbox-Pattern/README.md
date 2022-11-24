@@ -1,5 +1,5 @@
 Source Code for [How to Deliver Event Messages Successfully | Outbox Pattern](https://youtu.be/vM-WNyEiNk8)
-[![Options Pattern Youtube Video Link](https://img.youtube.com/vi/MASk-qHgkpw/0.jpg)](https://www.youtube.com/watch?v=MASk-qHgkpw)
+[![Options Pattern Youtube Video Link](https://img.youtube.com/vi/vM-WNyEiNk8/0.jpg)](https://www.youtube.com/watch?v=vM-WNyEiNk8)
 
 ## Docker Scripts
 MSSQL Script
