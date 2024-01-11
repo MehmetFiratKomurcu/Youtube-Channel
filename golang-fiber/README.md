@@ -1,6 +1,6 @@
 
-Source file and commands for [Aggregate Kafka Messages | ksqlDB Part 2](https://youtu.be/yCYv1g0wzs8)
-[![ksqlDB Part 2 Youtube Video Link](https://img.youtube.com/vi/dtgrKy-cjFU/0.jpg)](https://youtu.be/dtgrKy-cjFU)
+Source file and commands for [Unlocking Golang Fiber: A Practical Approach to Endpoints, Middlewares and Validations](https://youtu.be/dtgrKy-cjFU)
+[![Unlocking Golang Fiber: A Practical Approach to Endpoints, Middlewares and Validations Youtube Video Link](https://img.youtube.com/vi/dtgrKy-cjFU/0.jpg)](https://youtu.be/dtgrKy-cjFU)
 
 
 ## Go Get Commands
