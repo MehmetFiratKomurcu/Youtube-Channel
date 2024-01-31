@@ -1,5 +1,5 @@
-Source file and commands for [API Documentation with Swaggo in Golang](https://youtu.be/m_8CjSQ0ZR8)
-[![# API Documentation with Swaggo in Golang Youtube Video Link](https://img.youtube.com/vi/m_8CjSQ0ZR8/0.jpg)](https://youtu.be/m_8CjSQ0ZR8)
+Source file and commands for [Swagger API Documentation with Swaggo in Golang](https://youtu.be/m_8CjSQ0ZR8)
+[![# Swagger API Documentation with Swaggo in Golang Youtube Video Link](https://img.youtube.com/vi/m_8CjSQ0ZR8/0.jpg)](https://youtu.be/m_8CjSQ0ZR8)
 
 
 ## Commands
