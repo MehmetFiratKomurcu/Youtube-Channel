@@ -1,0 +1,83 @@
+definitions:
+  model.CreateOrderRequest:
+    description: Request about creating Order
+    properties:
+      age:
+        description: age to make sure you are young
+        type: integer
+      countryCode:
+        description: 'country code like: tr, us'
+        type: string
+      shipmentNumber:
+        description: shipment no of Order
+        type: string
+    required:
+    - age
+    - countryCode
+    - shipmentNumber
+    type: object
+info:
+  contact: {}
+  description: This is an Order Api just for young people
+  termsOfService: http://swagger.io/terms/
+  title: Order Api
+  version: "1.0"
+paths:
+  /orders:
+    post:
+      consumes:
+      - application/json
+      description: Creating Order with given request
+      parameters:
+      - description: code of Order
+        in: header
+        name: x-correlationid
+        required: true
+        type: string
+      - description: Request of Creating Order Object
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/model.CreateOrderRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+      summary: Creating Order
+      tags:
+      - Orders
+  /orders/code/{orderCode}:
+    get:
+      consumes:
+      - application/json
+      description: Getting Order by Code in detail
+      parameters:
+      - description: code of Order
+        in: header
+        name: x-correlationid
+        required: true
+        type: string
+      - description: code of Order
+        in: path
+        name: orderCode
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Getting Order by Code
+      tags:
+      - Orders
+swagger: "2.0"
