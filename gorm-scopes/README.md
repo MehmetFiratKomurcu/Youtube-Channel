@@ -1,6 +1,6 @@
 
-Source file and commands for [Creating a new endpoint with GORM Scopes | Golang API Part 4](https://youtu.be/FJ3pqRhOAA0)
-[![#Creating a new endpoint with GORM Scopes | Golang API Part 4 Youtube Video Link](https://img.youtube.com/vi/FJ3pqRhOAA0/0.jpg)](https://youtu.be/m_8CjSQ0ZR8)
+Source file and commands for [Creating a new endpoint with GORM Scopes | Golang API Part 4](https://www.youtube.com/watch?v=pzhjUgwP-f8)
+[![#Creating a new endpoint with GORM Scopes | Golang API Part 4 Youtube Video Link](https://img.youtube.com/vi/pzhjUgwP-f8/0.jpg)](https://www.youtube.com/watch?v=pzhjUgwP-f8)
 
 
 ## Commands
