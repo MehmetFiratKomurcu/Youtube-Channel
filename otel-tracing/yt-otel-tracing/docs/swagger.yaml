@@ -1,0 +1,135 @@
+definitions:
+  model.CreateOrderCommand:
+    description: Request about creating Order
+    properties:
+      cargoId:
+        description: cargo id of Order
+        type: integer
+      lineItems:
+        description: cargo id of Order
+        items:
+          $ref: '#/definitions/model.CreateOrderLineItemCommand'
+        type: array
+      shipmentNumber:
+        description: shipment no of Order
+        type: integer
+    required:
+    - cargoId
+    - lineItems
+    - shipmentNumber
+    type: object
+  model.CreateOrderLineItemCommand:
+    properties:
+      productId:
+        description: product id of Order line items
+        type: integer
+      sellerId:
+        description: product id of Order line items
+        type: integer
+    required:
+    - productId
+    - sellerId
+    type: object
+info:
+  contact: {}
+  description: This is an Order Api just for young people
+  termsOfService: http://swagger.io/terms/
+  title: Order Api
+  version: "1.0"
+paths:
+  /orders:
+    post:
+      consumes:
+      - application/json
+      description: Creating Order with given request
+      parameters:
+      - description: code of Order
+        in: header
+        name: x-correlationid
+        required: true
+        type: string
+      - description: Request of Creating Order Object
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/model.CreateOrderCommand'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+      summary: Creating Order
+      tags:
+      - Orders
+  /orders/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Getting Order by Id in detail
+      parameters:
+      - description: id of Order
+        in: header
+        name: x-correlationid
+        required: true
+        type: string
+      - description: id of Order
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+      summary: Getting Order by Id
+      tags:
+      - Orders
+  /orders/cargo-code/{cargoCode}/ship:
+    post:
+      consumes:
+      - application/json
+      description: Ship Order with given request
+      parameters:
+      - description: code of Order
+        in: header
+        name: x-correlationid
+        required: true
+        type: string
+      - description: Request for cargo code or orders
+        in: path
+        name: cargoCode
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+      summary: Shipping Order
+      tags:
+      - Orders
+swagger: "2.0"
