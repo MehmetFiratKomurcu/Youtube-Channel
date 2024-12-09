@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"github.com/ansrivas/fiberprometheus/v2"
 	"github.com/go-playground/validator/v10"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/log"
@@ -35,7 +36,21 @@ func main() {
 		_ = tp.Shutdown(context.Background())
 	}()
 
+	mp, err := trace.InitMeter()
+	if err != nil {
+		log.Fatal("something is wrong")
+	}
+	defer func() {
+		_ = mp.Shutdown(context.Background())
+	}()
+
 	app := fiber.New()
+
+	prometheus := fiberprometheus.New("order-api")
+	prometheus.RegisterAt(app, "/metrics")
+
+	app.Use(prometheus.Middleware)
+
 	app.Get("/swagger/*", swagger.HandlerDefault)
 
 	connString := "host=localhost user=postgres password=mysecretpassword dbname=postgres port=5432 sslmode=disable"
@@ -49,6 +64,8 @@ func main() {
 	if err != nil {
 		panic("aaaağğhh")
 	}
+
+	trace.InitMetrics(db)
 
 	customValidator := &validation.CustomValidator{
 		Validator: validate,
