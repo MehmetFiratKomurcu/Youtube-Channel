@@ -1,6 +1,6 @@
-Source file and commands for [ Implementing Distributed Tracing in Golang with OpenTelemetry ](https://youtu.be/7C59tF2sjuo)
+Source file and commands for [ Implementing OpenTelemetry Metrics in Golang ](https://youtu.be/uJSBkTqrCYQ)
 
-[![ Implementing Distributed Tracing in Golang with OpenTelemetry  Youtube Video Link](https://img.youtube.com/vi/7C59tF2sjuo/0.jpg)](https://www.youtube.com/watch?v=7C59tF2sjuo)
+[![ Implementing OpenTelemetry Metrics in Golang Youtube Video Link](https://img.youtube.com/vi/uJSBkTqrCYQ/0.jpg)](https://www.youtube.com/watch?v=uJSBkTqrCYQ)
 
 ## Docker Scripts
 
