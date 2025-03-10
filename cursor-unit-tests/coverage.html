@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>controller: Go Coverage Report</title>
+		<style>
+			body {
+				background: black;
+				color: rgb(80, 80, 80);
+			}
+			body, pre, #legend span {
+				font-family: Menlo, monospace;
+				font-weight: bold;
+			}
+			#topbar {
+				background: black;
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				height: 42px;
+				border-bottom: 1px solid rgb(80, 80, 80);
+			}
+			#content {
+				margin-top: 50px;
+			}
+			#nav, #legend {
+				float: left;
+				margin-left: 10px;
+			}
+			#legend {
+				margin-top: 12px;
+			}
+			#nav {
+				margin-top: 10px;
+			}
+			#legend span {
+				margin: 0 5px;
+			}
+			.cov0 { color: rgb(192, 0, 0) }
+.cov1 { color: rgb(128, 128, 128) }
+.cov2 { color: rgb(116, 140, 131) }
+.cov3 { color: rgb(104, 152, 134) }
+.cov4 { color: rgb(92, 164, 137) }
+.cov5 { color: rgb(80, 176, 140) }
+.cov6 { color: rgb(68, 188, 143) }
+.cov7 { color: rgb(56, 200, 146) }
+.cov8 { color: rgb(44, 212, 149) }
+.cov9 { color: rgb(32, 224, 152) }
+.cov10 { color: rgb(20, 236, 155) }
+
+		</style>
+	</head>
+	<body>
+		<div id="topbar">
+			<div id="nav">
+				<select id="files">
+				
+				<option value="file0">yt-otel-metrics/src/application/controller/orders.go (15.9%)</option>
+				
+				</select>
+			</div>
+			<div id="legend">
+				<span>not tracked</span>
+			
+				<span class="cov0">not covered</span>
+				<span class="cov8">covered</span>
+			
+			</div>
+		</div>
+		<div id="content">
+		
+		<pre class="file" id="file0" style="display: none">package controller
+
+import (
+        "fmt"
+        "github.com/gofiber/fiber/v2"
+        "go.opentelemetry.io/otel"
+        "go.opentelemetry.io/otel/attribute"
+        "go.opentelemetry.io/otel/codes"
+        "go.opentelemetry.io/otel/propagation"
+        "strconv"
+        "strings"
+        "yt-otel-metrics/src/application/domain/services"
+        "yt-otel-metrics/src/application/model"
+        "yt-otel-metrics/src/infra/validation"
+)
+
+// GetOrderById Getting Order by Code
+//
+//        @Summary                Getting Order by Id
+//        @Description        Getting Order by Id in detail
+//        @Tags                        Orders
+//        @Accept                        json
+//        @Produce                json
+//        @Param                        x-correlationid        header                string        true        "id of Order"
+//        @Param                        id                                path                string        true        "id of Order"
+//        @Failure                400                                {string}        string
+//        @Failure                404                                {string}        string
+//        @Success                200                                {string}        string
+//        @Router                        /orders/{id} [get]
+func GetOrderById(app *fiber.App, orderService services.OrderService) fiber.Router <span class="cov0" title="0">{
+        return app.Get("/orders/:id", func(ctx *fiber.Ctx) error </span><span class="cov0" title="0">{
+                propagator := otel.GetTextMapPropagator()
+                extractCtx := propagator.Extract(ctx.UserContext(), propagation.HeaderCarrier(ctx.GetReqHeaders()))
+
+                fmt.Printf("Your correlationId is %v", ctx.Locals("correlationId"))
+
+                tracer := otel.Tracer("Order Api")
+                userContext, span := tracer.Start(extractCtx, "GetOrderById Controller")
+                defer span.End()
+
+                traceParent := ctx.Get("traceparent")
+                fmt.Println("traceParent: " + traceParent)
+
+                orderId := ctx.Params("id")
+                id, err := strconv.ParseInt(orderId, 10, 64)
+
+                if err != nil </span><span class="cov0" title="0">{
+                        return ctx.Status(fiber.StatusBadRequest).JSON("Order id is not valid")
+                }</span>
+
+                <span class="cov0" title="0">order := orderService.GetOrderById(userContext, id)
+
+                span.SetAttributes(attribute.String("order.id", orderId))
+
+                if order == nil </span><span class="cov0" title="0">{
+                        span.SetAttributes(attribute.String("error", "Order not found"))
+                        span.SetStatus(codes.Error, "Order not found")
+                        return ctx.Status(fiber.StatusNotFound).JSON("Order Not Found, sorry! :(")
+                }</span>
+
+                <span class="cov0" title="0">return ctx.Status(fiber.StatusOK).JSON(order)</span>
+        })
+}
+
+// CreateOrder Creating Order
+//
+//        @Summary                Creating Order
+//        @Description        Creating Order with given request
+//        @Tags                        Orders
+//        @Accept                        json
+//        @Produce                json
+//        @Param                        x-correlationid        header                string                                                true        "code of Order"
+//        @Param                        request                        body                model.CreateOrderCommand        true        "Request of Creating Order Object"
+//        @Success                201                                {string}        string
+//        @Failure                400                                {string}        string        "Bad Request"
+//        @Router                        /orders [post]
+func CreateOrder(app *fiber.App, customValidator *validation.CustomValidator, orderService services.OrderService) fiber.Router <span class="cov0" title="0">{
+        return app.Post("/orders", func(ctx *fiber.Ctx) error </span><span class="cov0" title="0">{
+                var createOrderCommand model.CreateOrderCommand
+                err := ctx.BodyParser(&amp;createOrderCommand)
+                if err != nil </span><span class="cov0" title="0">{
+                        return err
+                }</span>
+
+                <span class="cov0" title="0">err2, hasError := validateCreateOrderRequest(ctx, customValidator, createOrderCommand)
+                if hasError </span><span class="cov0" title="0">{
+                        return err2
+                }</span>
+
+                <span class="cov0" title="0">createdOrder := orderService.CreateOrder(createOrderCommand)
+
+                return ctx.Status(fiber.StatusCreated).JSON(createdOrder)</span>
+        })
+}
+
+// ShipOrderByCargoCode Ship Order by CargoCode
+//
+//        @Summary                Shipping Order
+//        @Description        Ship Order with given request
+//        @Tags                        Orders
+//        @Accept                        json
+//        @Produce                json
+//        @Param                        x-correlationid        header                string        true        "code of Order"
+//        @Param                        cargoCode                path                string        true        "Request for cargo code or orders"
+//        @Success                200                                {string}        string
+//        @Failure                400                                {string}        string        "Bad Request"
+//        @Router                        /orders/cargo-code/{cargoCode}/ship [post]
+func ShipOrderByCargoCode(app *fiber.App, orderService services.OrderService) fiber.Router <span class="cov8" title="1">{
+        return app.Post("/orders/cargo-code/:cargoCode/ship", func(ctx *fiber.Ctx) error </span><span class="cov8" title="1">{
+                cargoCode := ctx.Params("cargoCode")
+
+                if cargoCode == "" </span><span class="cov0" title="0">{
+                        return ctx.Status(fiber.StatusBadRequest).JSON("invalid cargo code")
+                }</span>
+
+                <span class="cov8" title="1">err := orderService.ShipOrderByCargoCode(cargoCode)
+
+                if err != nil </span><span class="cov8" title="1">{
+                        return ctx.Status(fiber.StatusBadRequest).JSON(err.Error())
+                }</span>
+
+                <span class="cov8" title="1">return ctx.Status(fiber.StatusOK).JSON("Orders ship successfully! yayyyy!")</span>
+        })
+}
+
+func validateCreateOrderRequest(ctx *fiber.Ctx, customValidator *validation.CustomValidator, request model.CreateOrderCommand) (error, bool) <span class="cov0" title="0">{
+        if errs := customValidator.Validate(customValidator.Validator, request); len(errs) &gt; 0 &amp;&amp; errs[0].HasError </span><span class="cov0" title="0">{
+                errorMessages := make([]string, 0)
+
+                for _, err2 := range errs </span><span class="cov0" title="0">{
+                        errorMessages = append(errorMessages, fmt.Sprintf("%s field has failed. Validation is: %s", err2.Field, err2.Tag))
+                }</span>
+
+                <span class="cov0" title="0">return ctx.Status(fiber.StatusBadRequest).JSON(strings.Join(errorMessages, " and that ")), true</span>
+        }
+        <span class="cov0" title="0">return nil, false</span>
+}
+</pre>
+		
+		</div>
+	</body>
+	<script>
+	(function() {
+		var files = document.getElementById('files');
+		var visible;
+		files.addEventListener('change', onChange, false);
+		function select(part) {
+			if (visible)
+				visible.style.display = 'none';
+			visible = document.getElementById(part);
+			if (!visible)
+				return;
+			files.value = part;
+			visible.style.display = 'block';
+			location.hash = part;
+		}
+		function onChange() {
+			select(files.value);
+			window.scrollTo(0, 0);
+		}
+		if (location.hash != "") {
+			select(location.hash.substr(1));
+		}
+		if (!visible) {
+			select("file0");
+		}
+	})();
+	</script>
+</html>

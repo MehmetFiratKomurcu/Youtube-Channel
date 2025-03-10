@@ -1,0 +1,24 @@
+mode: set
+yt-otel-metrics/src/application/controller/orders.go:30.84,31.59 1 0
+yt-otel-metrics/src/application/controller/orders.go:31.59,47.17 11 0
+yt-otel-metrics/src/application/controller/orders.go:47.17,49.4 1 0
+yt-otel-metrics/src/application/controller/orders.go:51.3,55.19 3 0
+yt-otel-metrics/src/application/controller/orders.go:55.19,59.4 3 0
+yt-otel-metrics/src/application/controller/orders.go:61.3,61.48 1 0
+yt-otel-metrics/src/application/controller/orders.go:77.128,78.56 1 0
+yt-otel-metrics/src/application/controller/orders.go:78.56,81.17 3 0
+yt-otel-metrics/src/application/controller/orders.go:81.17,83.4 1 0
+yt-otel-metrics/src/application/controller/orders.go:85.3,86.15 2 0
+yt-otel-metrics/src/application/controller/orders.go:86.15,88.4 1 0
+yt-otel-metrics/src/application/controller/orders.go:90.3,92.60 2 0
+yt-otel-metrics/src/application/controller/orders.go:108.92,109.83 1 1
+yt-otel-metrics/src/application/controller/orders.go:109.83,112.22 2 1
+yt-otel-metrics/src/application/controller/orders.go:112.22,114.4 1 0
+yt-otel-metrics/src/application/controller/orders.go:116.3,118.17 2 1
+yt-otel-metrics/src/application/controller/orders.go:118.17,120.4 1 1
+yt-otel-metrics/src/application/controller/orders.go:122.3,122.78 1 1
+yt-otel-metrics/src/application/controller/orders.go:126.142,127.109 1 0
+yt-otel-metrics/src/application/controller/orders.go:127.109,130.29 2 0
+yt-otel-metrics/src/application/controller/orders.go:130.29,132.4 1 0
+yt-otel-metrics/src/application/controller/orders.go:134.3,134.98 1 0
+yt-otel-metrics/src/application/controller/orders.go:136.2,136.19 1 0
