@@ -74,3 +74,7 @@ To add a new routine:
 1. Create a new JSON file in the `routines` directory following the naming convention
 2. Follow the routine file format structure
 3. The server will automatically detect and serve the new routine
+
+## Inspector Command
+
+npx @modelcontextprotocol/inspector node dist/index.js
