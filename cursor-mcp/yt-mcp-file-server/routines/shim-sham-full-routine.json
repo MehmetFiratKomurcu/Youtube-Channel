@@ -1,0 +1,76 @@
+{
+  "name": "Shim Sham",
+  "description": "The Shim Sham is often called the tap dancer's national anthem. It's a classic jazz dance routine.",
+  "difficulty": "intermediate",
+  "duration": "32 bars",
+  "style": "jazz",
+  "creator": "Leonard Reed and Willie Bryant",
+  "year": "1927",
+  "steps": [
+    {
+      "name": "Shim Sham Step",
+      "count": "8",
+      "description": "Basic Shim Sham step pattern"
+    },
+    {
+      "name": "Cross Over",
+      "count": "8",
+      "description": "Cross step pattern"
+    },
+    {
+      "name": "Tacky Annie",
+      "count": "8",
+      "description": "Tack Annie variation"
+    },
+    {
+      "name": "Half Break",
+      "count": "4",
+      "description": "Half break sequence"
+    },
+    {
+      "name": "Full Break",
+      "count": "8",
+      "description": "Complete break sequence"
+    },
+    {
+      "name": "Push and Cross",
+      "count": "8",
+      "description": "Push and cross step combination"
+    },
+    {
+      "name": "Tacky Annie",
+      "count": "8",
+      "description": "Repeat of Tack Annie"
+    },
+    {
+      "name": "Half Break",
+      "count": "4",
+      "description": "Repeat of half break"
+    },
+    {
+      "name": "Full Break",
+      "count": "8",
+      "description": "Repeat of full break"
+    },
+    {
+      "name": "Boogie Back",
+      "count": "8",
+      "description": "Boogie steps moving backward"
+    },
+    {
+      "name": "Boogie Forward",
+      "count": "8",
+      "description": "Boogie steps moving forward"
+    },
+    {
+      "name": "Shorty George",
+      "count": "8",
+      "description": "Shorty George step sequence"
+    },
+    {
+      "name": "Break",
+      "count": "8",
+      "description": "Final freeze/break"
+    }
+  ]
+} 

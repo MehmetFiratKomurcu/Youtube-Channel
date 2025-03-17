@@ -1,0 +1,6 @@
+
+> dance-routine-server@1.0.0 start
+> node dist/index.js ./routines
+
+Dance Routine Server running on stdio
+Allowed directories: [ '/Users/firat.komurcu/GoProjects/yt-mcp-file-server/routines' ]
