@@ -1,0 +1,42 @@
+{
+    "name": "Shim Sham",
+    "description": "The Shim Sham is often called the tap dancer's national anthem. It's a classic jazz dance routine.",
+    "difficulty": "intermediate",
+    "duration": "32 bars",
+    "style": "jazz",
+    "creator": "Leonard Reed and Willie Bryant",
+    "year": "1927",
+    "steps": [
+      {
+        "name": "Shim Sham Step",
+        "count": "8",
+        "description": "Basic Shim Sham step pattern"
+      },
+      {
+        "name": "Cross Over",
+        "count": "8",
+        "description": "Cross step pattern"
+      },
+      {
+        "name": "Tack Annie",
+        "count": "8",
+        "description": "Tack Annie variation"
+      },
+      {
+        "name": "Half Break",
+        "count": "4",
+        "description": "Half break sequence"
+      },
+      {
+        "name": "Full Break",
+        "count": "8",
+        "description": "Complete break sequence"
+      },
+      {
+        "name": "Push and Cross",
+        "count": "8",
+        "description": "Push and cross step combination"
+      }
+    ]
+  } 
+  
