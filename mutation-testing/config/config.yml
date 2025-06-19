@@ -1,0 +1,19 @@
+# go-mutesting configuration file
+
+# Skip files without _test.go tests
+skip_without_test: true
+
+# If in _test.go file we have --build tag - then skip it
+skip_with_build_tags: true
+
+# Make report.json file with a mutation test report
+json_output: true
+
+# Do not print mutation stats (false = show stats)
+silent_mode: false
+
+# Directories for excluding (prefix-based path matching)
+exclude_dirs:
+  - "vendor/"
+  - ".git/"
+  - "examples/" 
