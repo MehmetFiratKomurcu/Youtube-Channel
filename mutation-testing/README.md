@@ -1,7 +1,8 @@
 # Go Mutation Testing Demo - YouTube Video Content
 
 Source Code for [Create Powerful AI Agents with smolagents](https://youtu.be/BlEHEupNVmQ )
-[![Create Powerful AI Agents with smolagents Youtube Video Link](https://img.youtube.com/vi/BlEHEupNVmQ /0.jpg)](https://www.youtube.com/watch?v=BlEHEupNVmQ )
+
+[![Create Powerful AI Agents with smolagents Youtube Video Link](https://img.youtube.com/vi/BlEHEupNVmQ/0.jpg)](https://www.youtube.com/watch?v=BlEHEupNVmQ )
 
 This project was created to explain **Mutation Testing** concepts and the `go-mutesting` library in the Go programming language.
 
